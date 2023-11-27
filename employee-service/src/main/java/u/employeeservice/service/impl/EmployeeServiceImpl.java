@@ -13,6 +13,7 @@ import u.employeeservice.exceptions.EmailAlreadyExistsException;
 import u.employeeservice.exceptions.ResourceNotFoundException;
 import u.employeeservice.mapper.AutoEmployeeMapper;
 import u.employeeservice.repository.EmployeeRepository;
+import u.employeeservice.service.APIClient;
 import u.employeeservice.service.EmployeeService;
 
 import java.util.Optional;
@@ -25,7 +26,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 //    private RestTemplate restTemplate;
 
-    private WebClient webClient;
+//    private WebClient webClient;
+
+    private APIClient apiClient;
 
     @Override
     public EmployeeDto saveEmployee(EmployeeDto employeeDto) {
@@ -57,11 +60,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 //
 //        DepartmentDto departmentDto = responseEntity.getBody();
 
-        DepartmentDto departmentDto = webClient.get()
-                .uri("http://localhost:8080/api/departments/" + employee.getDepartmentCode())
-                .retrieve()
-                .bodyToMono(DepartmentDto.class)
-                .block();
+//        DepartmentDto departmentDto = webClient.get()
+//                .uri("http://localhost:8080/api/departments/" + employee.getDepartmentCode())
+//                .retrieve()
+//                .bodyToMono(DepartmentDto.class)
+//                .block();
+
+        DepartmentDto departmentDto = apiClient.getDepartment(employee.getDepartmentCode());
 
         EmployeeDto employeeDto = AutoEmployeeMapper.MAPPER.mapToEmployeeDto(employee);
 
