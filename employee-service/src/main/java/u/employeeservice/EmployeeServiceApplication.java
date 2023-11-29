@@ -10,7 +10,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 @EnableFeignClients
 @SpringBootApplication
-@EnableEurekaClient
+@EnableEurekaClient // 3 no
 public class EmployeeServiceApplication {
 
 //	@Bean
@@ -32,3 +32,4 @@ public class EmployeeServiceApplication {
 }
 
 // java -jar -Dserver.port=8083 employee-service-0.0.1-SNAPSHOT.jar
+// http://localhost:9191/api/employees/6
