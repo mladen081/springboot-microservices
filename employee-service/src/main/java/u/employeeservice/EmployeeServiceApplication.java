@@ -33,3 +33,4 @@ public class EmployeeServiceApplication {
 
 // java -jar -Dserver.port=8083 employee-service-0.0.1-SNAPSHOT.jar
 // http://localhost:9191/api/employees/6
+// java -jar zipkin-server-3.0.0-rc0-exec.jar
