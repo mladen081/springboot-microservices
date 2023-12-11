@@ -18,10 +18,10 @@ public class EmployeeServiceApplication {
 //		return new RestTemplate();
 //	}
 
-//	@Bean
-//	public WebClient webClient() {
-//		return WebClient.builder().build();
-//	}
+	@Bean
+	public WebClient webClient() {
+		return WebClient.builder().build();
+	}
 
 
 
@@ -34,3 +34,5 @@ public class EmployeeServiceApplication {
 // java -jar -Dserver.port=8083 employee-service-0.0.1-SNAPSHOT.jar
 // http://localhost:9191/api/employees/6
 // java -jar zipkin-server-3.0.0-rc0-exec.jar
+
+// docker run --rm -it -p 5672:5672 rabbitmq:3.13-rc.2
